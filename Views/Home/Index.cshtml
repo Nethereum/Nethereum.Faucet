@@ -1,0 +1,56 @@
+﻿@using Microsoft.Extensions.Options;
+@using Nethereum.Hex.HexConvertors.Extensions;
+
+@inject IOptions<NethereumFaucet.FaucetSettings> FaucetSettings
+@model NethereumFaucet.ViewModel.FaucetViewModel
+@{
+
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <h1>Ethereum Faucet</h1>
+    <div class="jumbotron">
+        <p class="lead">Please enter the account address to be funded with @FaucetSettings.Value.AmountToFund ether</p>
+        <form class="form-inline" asp-action="Index" >
+            <div class="form-group">
+                <label>Address:</label>
+                <div class="input-group">
+                    <div class="input-group-addon">0x</div>
+                    @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @placeholder = "address", @id = "address", @size=60 })
+                  </div>
+                </div>
+            <button type="submit" class="btn btn-primary ">Fund account</button>
+        </form>   
+    </div>
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+    @if (Model != null && !String.IsNullOrEmpty(Model.TransactionHash))
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Fund Account transaction request</h2>
+            </div>
+            <div class="panel-body">
+                <table class="table-striped">
+                    <tbody>
+                        <tr>
+                            <th>Account Address:</th>
+                            <td>@Model.Address</td>
+                        </tr>
+                        <tr>
+                            <th>Transaction</th>
+                            <td><a href="@FaucetSettings.Value.UrlTxnExplorer@Model.TransactionHash.EnsureHexPrefix()">@Model.TransactionHash.EnsureHexPrefix()</a></td>
+                        </tr>
+                        <tr>
+                            <th>Amount</th>
+                            <td>@Model.Amount</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    }
+
+</div>
