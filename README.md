@@ -14,4 +14,4 @@ Please modify the appsettings file to provide the Ethereum address, Explorer for
  "UrlTxnExplorer": "http://BLOCKEXPLORER-ADDRESS/tx/"
 ```
 
-[![Faucet demo](faucet.png "Faucet demo")]
+![Faucet demo](faucet.png "Faucet demo")
