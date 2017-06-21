@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Nethereum.Templates.Faucet</id>
+        <version>0.1.0</version>
+        <description>Nethereum Faucet: The Nethereum template faucet, is a web application template for a simple faucet to provide a limited amount of Ether to accounts in your Ethereum deployment</description>
+        <summary>The Nethereum template faucet, is a web application template for a simple faucet to provide a limited amount of Ether to accounts in your Ethereum deployment</summary>
+        <authors>Juan Blanco</authors>
+        <iconUrl>https://raw.githubusercontent.com/Nethereum/Nethereum/master/logos/logo64x64.png</iconUrl>
+        <projectUrl>http://www.nethereum.com</projectUrl>
+        <licenseUrl>https://raw.githubusercontent.com/Nethereum/Nethereum/master/LICENSE.md</licenseUrl>
+        <copyright>Copyright 2017: Juan Blanco</copyright>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <packageTypes>
+            <packageType name="Template" />
+        </packageTypes>
+    </metadata>
+</package>
