@@ -2,6 +2,8 @@
 
 Simple faucet to fund Ethereum accounts
 
+![Faucet demo](Content/faucet.png "Faucet demo")
+
 ## Installation as a dotnet new template
 To install the faucet as a "dotnet new" template use the following command:
 
@@ -31,5 +33,3 @@ Please modify the appsettings file to provide the Ethereum address, Explorer for
  "AmountToFund": 10,
  "UrlTxnExplorer": "http://BLOCKEXPLORER-ADDRESS/tx/"
 ```
-
-![Faucet demo](Content/faucet.png "Faucet demo")
