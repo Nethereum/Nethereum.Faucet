@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Nethereum.Templates.Faucet</id>
-        <version>0.1.0</version>
+        <version>0.2.0</version>
         <description>Nethereum Faucet: The Nethereum template faucet, is a web application template for a simple faucet to provide a limited amount of Ether to accounts in your Ethereum deployment</description>
         <summary>The Nethereum template faucet, is a web application template for a simple faucet to provide a limited amount of Ether to accounts in your Ethereum deployment</summary>
         <authors>Juan Blanco</authors>
