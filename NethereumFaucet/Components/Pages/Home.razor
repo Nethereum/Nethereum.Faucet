@@ -1,0 +1,92 @@
+﻿@page "/"
+@using Microsoft.Extensions.Options
+@inject IFaucetService FaucetService
+@inject IOptions<FaucetSettings> FaucetSettings
+@rendermode InteractiveServer
+
+<PageTitle>@FaucetSettings.Value.CurrencySymbol Faucet</PageTitle>
+
+<MudGrid Justify="Justify.Center" Class="mt-5">
+
+    <MudCard Style="width: 600px;">
+        <MudCardHeader>
+            <CardHeaderContent>
+                <MudText Align="Align.Center" Typo="Typo.h4" Class="m-4">@FaucetSettings.Value.ChainName Faucet</MudText>
+            </CardHeaderContent>
+            <CardHeaderActions>
+
+            </CardHeaderActions>
+        </MudCardHeader>
+      
+        <MudCardContent>
+           
+            <MudGrid Justify="Justify.Center">
+               
+                <MudStack Row="false" AlignItems="AlignItems.Center" Class="pa-2">
+                    <img src="images/logo.png" Height="192" />
+                    <MudText Typo="Typo.caption">Please input your address to fund some @FaucetSettings.Value.CurrencySymbol</MudText>
+                    <MudStack Row="true" AlignItems="AlignItems.Center" Class="pa-2">
+                        <MudTextField Style="width: 400px;" @bind-Value="address" Label="Account address" Variant="Variant.Text" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.AccountCircle" />  
+                    </MudStack>
+                    @if (!string.IsNullOrEmpty(errorMessage))
+                    {
+                        <MudAlert Severity="Severity.Error">@errorMessage</MudAlert>
+                    }
+
+                    @if (faucetRequestResult != null)
+                    {
+                       <MudText Typo="Typo.caption">
+                            @address has been funded with @faucetRequestResult.Amount @FaucetSettings.Value.CurrencySymbol
+                        </MudText>
+                        <MudLink Typo="Typo.caption" Target="_blank" Href="@(FaucetSettings.Value.UrlTxnExplorer + "/tx/" + @faucetRequestResult.TransactionHash)">Transaction: @faucetRequestResult.TransactionHash</MudLink>
+                    }
+
+                    <MudFab Class="mt-3" Label="Fund me" OnClick="SubmitRequestAsync">
+
+                        @if (sendingRequest)
+                        {
+                            <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true" />
+                            <MudText Class="ms-2">Fund Me</MudText>
+                        }
+                        else
+                        {
+                            <MudText>Fund Me</MudText>
+                        }
+                    </MudFab> 
+
+                   
+                </MudStack>
+            </MudGrid>
+        </MudCardContent>
+        <MudCardActions>
+
+        </MudCardActions>
+    </MudCard>
+
+
+</MudGrid>
+@code {
+    string address;
+    bool sendingRequest = false;
+    string errorMessage = string.Empty;
+    FaucetRequestResult? faucetRequestResult;
+    public async Task SubmitRequestAsync()
+    {
+        try
+        {
+            errorMessage = string.Empty;
+            sendingRequest = true;
+            faucetRequestResult = await FaucetService.ProvideFundsAsync(address);
+        }
+        catch(Exception ex)
+        {
+            errorMessage = ex.Message;
+        }
+        finally
+        {
+            sendingRequest = false;
+        }
+    }
+
+}
+

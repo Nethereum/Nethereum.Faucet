@@ -1,0 +1,30 @@
+{
+    "author": "Juan Blanco",
+    "classifications": ["Nethereum", "Faucet"],
+    "name": "Nethereum Faucet Blazor and Rest Api",
+    "tags": {
+        "language": "C#"
+    },
+    "symbols": {
+      "ProjectName": {
+        "type": "parameter",
+        "datatype": "text",
+        "description": "The ProjectName to be used instead of 'NethereumFaucet'",
+        "fileRename": "NethereumFaucet",
+        "replaces": "NethereumFaucet",
+        "isRequired": true,
+        "defaultValue": "MyFaucet"
+      }
+    },
+    "identity": "Nethereum.Templates.Faucet",
+    "shortName": "nethereum-faucet",
+    "guids": [
+        "{9E67DD66-C5BF-4F8C-B1C2-072E6F2ED8EF}"
+    ],
+  "primaryOutputs": [
+    {
+      "path": "NethereumFaucet\\NethereumFaucet.csproj"
+    }
+  ],
+    "exclude": ["**/[Bb]in/**", "**/[Oo]bj/**", ".template.config/**/*", "**/*.lock.json"]
+    }
