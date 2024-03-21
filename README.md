@@ -20,7 +20,20 @@ dotnet new nethereumfaucet -n YourChainFaucet
 Where -n YourChainFaucet is the Name and Namespace of your project.
 
 ## Manual clone, installation
-Clone the repo and change the settings
+Clone the repo,
+install the template by running
+```
+dotnet new install .\
+```
+
+and you will get:
+
+```
+Template Name                         Short Name        Language  Tags
+------------------------------------  ----------------  --------  ----------------
+Nethereum Faucet Blazor and Rest Api  nethereum-faucet  [C#]      Nethereum/Faucet
+
+```
 
 ## Configuration settings:
 ### Appsettings.json
