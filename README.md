@@ -2,7 +2,7 @@
 
 Faucet template to fund EVM based chain accounts
 
-![Faucet demo](screenshots/nethereumFaucet.png "Faucet demo")
+![Faucet demo](screenshots/NethereumFaucet.png "Faucet demo")
 
 ## Installation as a dotnet new template
 To install the faucet as a "dotnet new" template use the following command:
