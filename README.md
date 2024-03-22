@@ -1,6 +1,6 @@
 # Nethereum.Faucet
 
-Faucet template to fund EVM based chain accounts
+Faucet template to fund EVM based chain accounts, including web front end and rest api
 
 ![Faucet demo](screenshots/NethereumFaucet.png "Faucet demo")
 
